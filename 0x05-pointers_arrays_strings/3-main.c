@@ -1,9 +1,9 @@
-#include "holberton.h"
+#include <stdio.h>
 
 void _puts(char *);
 
 /**
- * main - Check the code for Holberton School students.
+ * main - check the code for Holberton School students.
  *
  * Return: Always 0.
  */
