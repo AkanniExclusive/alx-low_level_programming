@@ -1,22 +1,27 @@
-#include <stdio.h>
+#include "main.h"
 #include "holberton.h"
 
 /**
- * main - check the code for ALX School students.
+ * flip_bits - number of different bits between two numbers
+ * @n: first number
+ * @m: second number
  *
- * Return: Always 0.
+ * Return: number of bits you would need to flip
+ * to get from one number to another.
  */
-int main(void)
+unsigned int flip_bits(unsigned long int n, unsigned long int m)
 {
-	unsigned int n;
+	unsigned long int diff, check;
+	unsigned int count, i;
 
-	n = flip_bits(1024, 1);
-	printf("%u\n", n);
-	n = flip_bits(402, 98);
-	printf("%u\n", n);
-	n = flip_bits(1024, 3);
-	printf("%u\n", n);
-	n = flip_bits(1024, 1025);
-	printf("%u\n", n);
-	return (0);
+	count = 0;
+	check = 1;
+	diff = n ^ m;
+	for (i = 0; i < (sizeof(unsigned long int) * 8); i++)
+	{
+		if (check == (diff & check))
+			count++;
+		check <<= 1;
+	}
+	return (count);
 }
